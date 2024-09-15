@@ -1,0 +1,21 @@
+# Build artifacts
+Build/
+Temp/
+Library/
+*.unitypackage
+
+# Visual studio files
+.vs/
+*.suo
+*.user
+*.sln
+*.csproj
+*.unityproj
+*.userprefs
+
+# Unity3D meta files
+*.meta
+
+# OS generated files
+.DS_Store
+Thumbs.db
