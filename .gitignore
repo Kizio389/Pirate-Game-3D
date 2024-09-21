@@ -2,7 +2,7 @@
 Build/
 Temp/
 Library/
-*.unitypackage
+
 
 # Visual studio files
 .vs/
