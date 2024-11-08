@@ -1536,7 +1536,7 @@ MonoBehaviour:
   LobbyName: abc
   sessionListContentParent: {fileID: 1642161624}
   sessionListEntryPrefab: {fileID: 5744870623177465867, guid: a6335aed5b2ab2e459828c2bfb2239cc, type: 3}
-  GameScene: {fileID: 102900000, guid: 80cbce09af55a234eb471ff146eef8d4, type: 3}
+  GameSceneName: GameScene
   playerPrefab:
     RawGuidValue: 3f434b6ee1fa50e40a072b24c0e8f2aa
 --- !u!1 &1850516140

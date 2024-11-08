@@ -868,7 +868,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: FUSION_WEAVER;FUSION2
+    Standalone: FUSION_WEAVER;FUSION2;LEVELPLAY_DEPENDENCIES_INSTALLED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
@@ -976,10 +976,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: a567e52d-a665-4684-8dbc-7bfded437c52
+  cloudProjectId: 38a480c2-fbd5-4f7c-a5dc-d3220a7c9e05
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Final Project VTCA-PirateGame 2024-09-15_14-08-41
+  projectName: Final Project VTCA-PirateGame
   organizationId: kizio389
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
