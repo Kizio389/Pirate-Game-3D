@@ -20,5 +20,9 @@ public class MenuController : MonoBehaviour
     {
         settingsCanvas.SetActive(false); 
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
 
