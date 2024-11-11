@@ -19,8 +19,13 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
+<<<<<<< HEAD
   m_Title: Scene
   m_RootView: {fileID: 3}
+=======
+  m_Title: Console
+  m_RootView: {fileID: 2}
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
@@ -121,6 +126,34 @@ MonoBehaviour:
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
+<<<<<<< HEAD
+=======
+--- !u!114 &5
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 6}
+  - {fileID: 10}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 30
+    width: 1920
+    height: 939
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 1
+  controlID: 69
+>>>>>>> origin/BaoNguyen_CreateMenu
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 7}
+<<<<<<< HEAD
   - {fileID: 12}
   m_Position:
     serializedVersion: 2
@@ -146,6 +180,20 @@ MonoBehaviour:
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
   controlID: 65
+=======
+  - {fileID: 8}
+  - {fileID: 9}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1920
+    height: 400
+  m_MinSize: {x: 300, y: 50}
+  m_MaxSize: {x: 24288, y: 8096}
+  vertical: 0
+  controlID: 40
+>>>>>>> origin/BaoNguyen_CreateMenu
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -155,22 +203,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_Children:
   - {fileID: 8}
   - {fileID: 11}
+=======
+  m_Children: []
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1420
     height: 939
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
   controlID: 66
+=======
+    width: 421
+    height: 400
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 12}
+  m_Panes:
+  - {fileID: 12}
+  m_Selected: 0
+  m_LastSelected: 0
+>>>>>>> origin/BaoNguyen_CreateMenu
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -180,6 +244,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
+<<<<<<< HEAD
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -208,10 +273,15 @@ MonoBehaviour:
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: SceneHierarchyWindow
+=======
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: GameView
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 0
     width: 494
@@ -279,6 +349,23 @@ MonoBehaviour:
   m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &12
+=======
+    x: 421
+    y: 0
+    width: 947
+    height: 400
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 11}
+  m_Panes:
+  - {fileID: 13}
+  - {fileID: 14}
+  - {fileID: 15}
+  - {fileID: 11}
+  m_Selected: 3
+  m_LastSelected: 0
+--- !u!114 &9
+>>>>>>> origin/BaoNguyen_CreateMenu
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,6 +380,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1420
     y: 0
     width: 500
@@ -300,11 +388,47 @@ MonoBehaviour:
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
+=======
+    x: 1368
+    y: 0
+    width: 552
+    height: 400
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 16}
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_Panes:
-  - {fileID: 20}
+  - {fileID: 16}
   m_Selected: 0
   m_LastSelected: 0
---- !u!114 &13
+--- !u!114 &10
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: ConsoleWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 400
+    width: 1920
+    height: 539
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  m_ActualView: {fileID: 17}
+  m_Panes:
+  - {fileID: 17}
+  - {fileID: 18}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -324,10 +448,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1111
     y: 73
     width: 307
     height: 596
+=======
+    x: 421
+    y: 73
+    width: 945
+    height: 379
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -380,16 +511,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 307
       height: 575
     m_Scale: {x: 0.15989584, y: 0.15989584}
     m_Translation: {x: 153.5, y: 287.5}
+=======
+      width: 945
+      height: 358
+    m_Scale: {x: 0.3314815, y: 0.3314815}
+    m_Translation: {x: 472.5, y: 179}
+>>>>>>> origin/BaoNguyen_CreateMenu
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -960
       y: -1798.0455
       width: 1920
@@ -397,12 +536,21 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 0.15989584
   m_LastWindowPixelSize: {x: 307, y: 596}
+=======
+      x: -1425.419
+      y: -540
+      width: 2850.838
+      height: 1080
+    m_MinimalGUI: 1
+  m_defaultScale: 0.3314815
+  m_LastWindowPixelSize: {x: 945, y: 379}
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &14
+--- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -424,8 +572,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
+<<<<<<< HEAD
     width: 493
     height: 596
+=======
+    width: 420
+    height: 379
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -439,9 +592,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: f03bffffe4faffff
+=======
+      m_SelectedIDs: aa8e0000
+      m_LastClickedID: 36522
+      m_ExpandedIDs: 50c7fffffafaffff
+>>>>>>> origin/BaoNguyen_CreateMenu
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -457,7 +616,11 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
+<<<<<<< HEAD
         m_ClientGUIView: {fileID: 9}
+=======
+        m_ClientGUIView: {fileID: 7}
+>>>>>>> origin/BaoNguyen_CreateMenu
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -465,7 +628,7 @@ MonoBehaviour:
       m_IsLocked: 1
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &15
+--- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -485,10 +648,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 494
     y: 73
     width: 615
     height: 596
+=======
+    x: 421
+    y: 73
+    width: 779
+    height: 379
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -711,7 +881,24 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
+<<<<<<< HEAD
       snapOffset: {x: 0, y: 25}
+=======
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Physics Debugger
+      index: 4
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+>>>>>>> origin/BaoNguyen_CreateMenu
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Scene Visibility
@@ -725,7 +912,7 @@ MonoBehaviour:
       collapsed: 0
       displayed: 0
       snapOffset: {x: -232.00003, y: -202.4}
-      snapOffsetDelta: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0.000030517578, y: 0}
       snapCorner: 3
       id: Scene View/Particles
       index: 5
@@ -873,9 +1060,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -23.27026, y: 32.83377, z: 82.43586}
     speed: 2
     m_Value: {x: -23.27026, y: 32.83377, z: 82.43586}
+=======
+    m_Target: {x: 1475.4374, y: 622.4262, z: 0}
+    speed: 2
+    m_Value: {x: 1475.4374, y: 622.4262, z: 0}
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -900,7 +1093,7 @@ MonoBehaviour:
         m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 0, y: 0}
+      m_Size: {x: 1, y: 1}
     yGrid:
       m_Fade:
         m_Target: 1
@@ -921,6 +1114,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: 0.024592873, y: 0.9745896, z: -0.17884603, w: 0.13321991}
     speed: 2
     m_Value: {x: 0.024592875, y: 0.97458965, z: -0.17884605, w: 0.13321993}
@@ -928,6 +1122,15 @@ MonoBehaviour:
     m_Target: 8.989993
     speed: 2
     m_Value: 8.989993
+=======
+    m_Target: {x: -0.08227418, y: -0.056480825, z: 0.004670208, w: -0.9949984}
+    speed: 2
+    m_Value: {x: -0.08227408, y: -0.05648075, z: 0.004670202, w: -0.9949971}
+  m_Size:
+    m_Target: 478.02942
+    speed: 2
+    m_Value: 478.02942
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -945,14 +1148,14 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.3002479, y: 0.6959224, z: -0.5029631, w: -0.41546357}
+  m_LastSceneViewRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &16
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -972,10 +1175,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 492
     y: 73
     width: 918
     height: 596
+=======
+    x: 421
+    y: 73
+    width: 1032
+    height: 453
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -988,8 +1198,8 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_ViewTransforms:
     m_KeySerializationHelper:
-    - {fileID: 3316174781966100149, guid: 980d4feaf528aad4c92bba6225bab408, type: 2}
     - {fileID: 1107183183148051290, guid: 7d05b9f214b59c242924642c971ea4c4, type: 2}
+<<<<<<< HEAD
     - {fileID: -2619189231931342915, guid: c452b4e11495a9e42aa46661900009d1, type: 2}
     - {fileID: -1917026904021663111, guid: 8198d63515b1bbc4b8595127689f485f, type: 2}
     m_ValueSerializationHelper:
@@ -1009,6 +1219,10 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+=======
+    - {fileID: 8591940477253442914, guid: 77ec73258feb7364da3bcc645cf120f4, type: 2}
+    m_ValueSerializationHelper:
+>>>>>>> origin/BaoNguyen_CreateMenu
     - e00: 0.35368422
       e01: 0
       e02: 0
@@ -1025,14 +1239,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.17052631
+    - e00: 1
       e01: 0
       e02: 0
-      e03: 6.473686
+      e03: 0
       e10: 0
-      e11: 0.17052631
+      e11: 1
       e12: 0
-      e13: 215.36842
+      e13: 0
       e20: 0
       e21: 0
       e22: 1
@@ -1058,9 +1272,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 980d4feaf528aad4c92bba6225bab408, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 77ec73258feb7364da3bcc645cf120f4, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 3316174781966100149, guid: 980d4feaf528aad4c92bba6225bab408, type: 2}
+  - m_Target: {fileID: 8591940477253442914, guid: 77ec73258feb7364da3bcc645cf120f4, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1073,7 +1287,125 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
+--- !u!114 &15
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12071, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Animation
+    m_Image: {fileID: -8166618308981325432, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 421
+    y: 73
+    width: 1032
+    height: 453
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_LockTracker:
+    m_IsLocked: 0
+  m_LastSelectedObjectID: 36522
+--- !u!114 &16
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12019, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Inspector
+    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1368
+    y: 73
+    width: 551
+    height: 379
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_ObjectsLockedBeforeSerialization: []
+  m_InstanceIDsLockedBeforeSerialization: 
+  m_PreviewResizer:
+    m_CachedPref: -212
+    m_ControlHash: -371814159
+    m_PrefName: Preview_InspectorPreview
+  m_LastInspectedObjectInstanceID: -1
+  m_LastVerticalScrollValue: 0
+  m_GlobalObjectId: 
+  m_InspectorMode: 0
+  m_LockTracker:
+    m_IsLocked: 0
+  m_PreviewWindow: {fileID: 0}
 --- !u!114 &17
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12003, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Console
+    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: -32000
+    y: -31570
+    width: 1920
+    height: 518
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1094,9 +1426,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 690
     width: 1412
     height: 301
+=======
+    y: 473
+    width: 1920
+    height: 518
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1118,7 +1456,11 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Animation/Characters/Holder Sword
+=======
+    - Assets
+>>>>>>> origin/BaoNguyen_CreateMenu
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1126,16 +1468,26 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Animation/Characters/Holder Sword
+=======
+  - Assets
+>>>>>>> origin/BaoNguyen_CreateMenu
   m_LastFoldersGridSize: 96
-  m_LastProjectPath: F:\Unity Project\Final Project VTCA-PirateGame
+  m_LastProjectPath: D:\project\final-project\Pirate-Game-3D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 92770200
     m_LastClickedID: 161682
     m_ExpandedIDs: 0000000044b3000046b3000048b300004ab300004cb300004eb3000050b3000052b3000054b3000056b3000058b300005ab300005cb300005eb3000060b3000062b3000064b3000066b3000068b300006ab300006cb300006eb3000070b3000072b3000074b30000
+=======
+    m_SelectedIDs: ca8e0000
+    m_LastClickedID: 36554
+    m_ExpandedIDs: 00000000566d0000586d00005a6d00005c6d00005e6d0000606d0000626d0000646d0000666d0000686d00006a6d00006c6d00006e6d0000706d0000726d0000746d0000766d0000786d00007a6d00007c6d00007e6d0000806d0000826d0000846d0000866d000000ca9a3bffffff7f
+>>>>>>> origin/BaoNguyen_CreateMenu
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1151,7 +1503,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 0}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1163,7 +1515,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000044b3000046b3000048b300004ab300004cb300004eb3000050b3000052b3000054b3000056b3000058b300005ab300005cb300005eb3000060b3000062b3000064b3000066b3000068b300006ab300006cb300006eb3000070b3000072b3000074b30000
+=======
+    m_ExpandedIDs: 00000000566d0000586d00005a6d00005c6d00005e6d0000606d0000626d0000646d0000666d0000686d00006a6d00006c6d00006e6d0000706d0000726d0000746d0000766d0000786d00007a6d00007c6d00007e6d0000806d0000826d0000846d0000866d0000
+>>>>>>> origin/BaoNguyen_CreateMenu
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1188,10 +1544,17 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 7685f7ff
     m_LastClickedInstanceID: -555658
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300003cb2000090a400007ea50000cca60000e0a4000016a30000286e0000346e00003a6e0000466a0000c26b0000a8560000aa560000d26a0000ce6a000094570200a8580200a4df0000e8ac0200d27b020006d90200a6dd000012dc00008a86030020860300728603005e85030094860300448503000c85030032860300ae860300588603008e850300ec670000ce720000bc860000b0c9000094c90000c4c900008adb00008cc900008ac9000082c9000084c90000c4de0000cade0000fc6200001a640000fc630000ce62000000000000faa200004eb8000012f30100f0100100a276180044220700dead0000c2f90100daad00003ae900006abb0000c6ab00002cd70000cedf00004cba0100
+=======
+    m_SelectedInstanceIDs: aa8e0000
+    m_LastClickedInstanceID: 36522
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c62300003cb2000090a400007ea50000cca60000e0a4000016a30000286e0000346e00003a6e0000466a0000c26b0000a8560000aa560000d26a0000ce6a000094570200a8580200a4df0000e8ac0200d27b020006d90200a6dd000012dc00008a86030020860300728603005e85030094860300448503000c85030032860300ae860300588603008e850300ec670000ce720000bc860000b0c9000094c90000c4c900008adb00008cc900008ac9000082c9000084c90000c4de0000cade0000fc6200001a640000fc630000ce620000faa200004eb800000c51000000000000a06100002e51000022690000b86a0000dc820000a0d70000
+>>>>>>> origin/BaoNguyen_CreateMenu
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1219,6 +1582,7 @@ MonoBehaviour:
     m_GridSize: 96
   m_SkipHiddenPackages: 1
   m_DirectoriesAreaWidth: 235
+<<<<<<< HEAD
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1337,3 +1701,5 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
+=======
+>>>>>>> origin/BaoNguyen_CreateMenu

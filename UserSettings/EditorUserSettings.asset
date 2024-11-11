@@ -6,6 +6,7 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
+<<<<<<< HEAD
       value: 56505256540708030f59557b41220744101541732d707364292b4537e4e36669
       flags: 0
     RecentlyUsedSceneGuid-1:
@@ -16,6 +17,36 @@ EditorUserSettings:
       flags: 0
     RecentlyUsedSceneGuid-3:
       value: 0157555301005f5a5d0b0e7740250f441416487f2f2a706874781e6ab3b2656c
+=======
+      value: 0704075e06560f585f5a5f7411210b441515482c7f7b22607b7f4f31b3b3673e
+      flags: 0
+    RecentlyUsedSceneGuid-1:
+      value: 5004525e01015a595c5b5a7741200b44474f192f7e7a7f662b2a4c31b6b8323e
+      flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 5605525555000b0d5d57587512210744144e1e7d2d7b70622f284a36e3b46260
+      flags: 0
+    RecentlyUsedSceneGuid-3:
+      value: 5757055652535e095f595f2614740f4447164b7d7f2c76367f7d1e67b2b2676f
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 5050525550015e0b5c5c0e7246255a4443151a7a797c2361287e4830e6b66639
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 5b07010704025d5a5d5d0a2312275e4417151a797e292732792f1f35e4b76061
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 54500653570658595c5e0824417a0e4410164f7c7b7b25632c281e31b7e5626c
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 560956075005080e5d0b5f24447207444e4f1e7c7d797e3674784d61bbb06c68
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 5a5757560101590a5d0c0e24427b5d44434e4c7a7b7a23677f2b4565b7b5353a
+      flags: 0
+    RecentlyUsedSceneGuid-9:
+      value: 000757560105085e54575d23167a5b44144f482b7e712733797f1e60e1b26d3b
+>>>>>>> origin/BaoNguyen_CreateMenu
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
