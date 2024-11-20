@@ -1,14 +1,11 @@
-# This .gitignore file should be placed at the root of your Unity project directory
-#
-# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
-#
+# Unity specific folders and files
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
-[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+[Ll]ogs/  # Ignore all logs (including nested logs folder)
+/[Uu]ser[Ss]ettings/  # Ignore all UserSettings folder and files
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -70,4 +67,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-Logs/shadercompiler-UnityShaderCompiler.exe0.log
+
+# Ignore Logs and UserSettings folder/files explicitly
+Logs/
+UserSettings/
