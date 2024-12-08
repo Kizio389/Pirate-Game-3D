@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float SpeedToWalk = 1f;
     [SerializeField] private float SpeedToRun = 3f;
     [SerializeField] private bool isAttack;
+    private bool isRun = false;
 
     InformationIndexPlayer UIPlayer;
     SingletonIndexPlayer DataPlayer;
@@ -31,8 +32,8 @@ public class Movement : MonoBehaviour
         {
             MovementController();
         }
-        Debug.Log(DataPlayer.Stamina);
-        if(animator_Player.GetBool("ToRun") == false)
+        //Debug.Log(DataPlayer.Stamina);
+        if(isRun == false)
         {
             if(DataPlayer.Stamina >= DataPlayer.Max_Stamina)
             {
@@ -40,7 +41,7 @@ public class Movement : MonoBehaviour
             }
             DataPlayer.Stamina += .2f;
         }
-        AttackController();
+     
     }
     void MovementController()
     {
@@ -59,21 +60,26 @@ public class Movement : MonoBehaviour
             animator_Player.SetBool("ToWalk", true);
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                DataPlayer.Stamina -= .05f;
+                isRun = true;
                 if (DataPlayer.Stamina <= 0)
                 {
-                    DataPlayer.Stamina = 0;
-                    _Speed = SpeedToWalk;
+                    DataPlayer.Stamina = -1 ;
                     animator_Player.SetBool("ToWalk", true);
-                    animator_Player.SetBool("ToRun", false);
                 }
-                else if (DataPlayer.Stamina > 0)
+                if(DataPlayer.Stamina > 0)
                 {
+                    DataPlayer.Stamina -= .05f;
                     _Speed = SpeedToRun;
                     animator_Player.SetBool("ToWalk", false);
                     animator_Player.SetBool("ToRun", true);
                 }
             }
+            
+
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.W))
+        {
+            isRun = false;
         }
         else if (Input.GetKey(KeyCode.S))
         {
@@ -99,30 +105,6 @@ public class Movement : MonoBehaviour
         characterController.Move(moveDirection * _Speed * Time.deltaTime);
     }
 
-    private bool can_Attack = true;
-    [SerializeField] float TimeToAttack = 1f;
-    void AttackController()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && can_Attack == true)
-        {
-            can_Attack = false;
-            animator_Player.SetTrigger("Attack");
-            StartCoroutine(CooldownAttack());
-        }
-    }
-
-    IEnumerator CooldownAttack()
-    {
-        float timer = 0f;
-        while(timer < TimeToAttack)
-        {
-            timer += Time.deltaTime;
-            if(timer >= TimeToAttack)
-            {
-                can_Attack = true;
-            }
-        }
-        yield return null;
-    }
+    
 }
 

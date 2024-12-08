@@ -33,6 +33,7 @@ public class SingletonIndexPlayer
         Max_Stamina = 50f;
         Stamina = 50f;
         Coin = 0;
+        Damage = 20;
     }
 
     public void ResetData()
@@ -42,5 +43,6 @@ public class SingletonIndexPlayer
         Max_Stamina = 50f;
         Stamina = Max_Stamina;
         Coin = 0;
+        Damage= 20;
     }
 }

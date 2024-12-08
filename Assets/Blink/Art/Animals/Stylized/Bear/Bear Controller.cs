@@ -14,12 +14,15 @@ public class BearController : MonoBehaviour
     public int rayCount = 10;            // Số tia phát ra
     
     public Color rayColor = Color.yellow;// Màu của tia
-    
+
+    [SerializeField] public float Heath = 200f;
     [SerializeField] public float Speed;
+
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -67,5 +70,20 @@ public class BearController : MonoBehaviour
             // Vẽ tia để debug
             Debug.DrawRay(transform.position, rayDirection * rayLength, rayColor);
         }
+    }
+
+    public void TakeDamege(float damege)
+    {
+        Heath -= damege;
+        if(Heath<=0)
+        {
+            Heath = 0;
+            isDeath();
+        }
+    }
+
+    void isDeath()
+    {
+        animator.SetTrigger("isDeath");
     }
 }

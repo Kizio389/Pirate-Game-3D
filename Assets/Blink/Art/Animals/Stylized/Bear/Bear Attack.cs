@@ -1,75 +1,114 @@
 ﻿using UnityEngine;
 
-public class SphereCastChase : MonoBehaviour
+public class BearAttack : MonoBehaviour
 {
-    public float detectionRadius = 5f;       // Bán kính phát hiện
-    public float attackRange = 1.5f;        // Khoảng cách để kích hoạt tấn công
-    public LayerMask playerLayer;           // Layer của Player
-    //public Animator animator;               // Animator để kích hoạt hoạt ảnh
+    public float detectionRadius = 5f;  // Bán kính phát hiện
+    public LayerMask detectionLayer;    // Layer của vật thể cần phát hiện
+    public float stopDistance = 1f;     // Khoảng cách dừng
+    public float moveSpeed = 3f;        // Tốc độ di chuyển
+    public float outOfRangeDuration = 5f; // Thời gian mục tiêu nằm ngoài phạm vi
 
-    [SerializeField] private Transform player;               // Tham chiếu đến Player
+    public float rotationSpeed = 5f;   // Tốc độ xoay
 
-    BearController controller;
-    void Update()
+    [SerializeField] private Transform target;           // Mục tiêu hiện tại
+    private float outOfRangeTime = 0f;  // Bộ đếm thời gian khi mục tiêu rời khỏi phạm vi
+
+    public float Damege = 10f;
+
+    Animator animator;
+    BearController bearController;
+    private void Start()
     {
-        // Kiểm tra Player trong phạm vi SphereCast
-        CheckForPlayer();
-
-        // Nếu có Player, di chuyển về phía họ
-        if (player != null)
-        {
-            MoveTowardsPlayer();
-        }
+        animator = GetComponent<Animator>();
+        bearController = GetComponent<BearController>();
     }
 
-    private void CheckForPlayer()
+    void Update()
     {
-        RaycastHit hit;
-
-        // Sử dụng SphereCast để kiểm tra Player trong bán kính
-        if (Physics.SphereCast(transform.position, detectionRadius, transform.forward, out hit, detectionRadius, playerLayer))
+        animator.SetBool("Run", false);
+        animator.SetBool("Attack", false);
+        // Kiểm tra mục tiêu trong phạm vi
+        if (target != null)
         {
-            Debug.Log("Hit player");
-            // Nếu va chạm với Player, lưu tham chiếu
-            if (hit.collider.CompareTag("Player"))
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+            // Kiểm tra nếu mục tiêu vượt ra khỏi phạm vi
+            if (distanceToTarget > detectionRadius)
             {
-                player = hit.collider.transform;
-                Debug.Log("Phát hiện Player: " + player.name);
+                outOfRangeTime += Time.deltaTime;
+                if (outOfRangeTime >= outOfRangeDuration)
+                {
+                    Debug.Log("Target lost. Returning to idle state.");
+                    target = null;  // Đặt lại mục tiêu
+                    outOfRangeTime = 0f; // Reset bộ đếm
+                }
+            }
+            else
+            {
+                outOfRangeTime = 0f; // Reset bộ đếm nếu mục tiêu quay lại
             }
         }
         else
         {
-            player = null; // Không phát hiện thấy Player
+            bearController.enabled = true;
+            // Tìm mục tiêu mới nếu không có mục tiêu
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius, detectionLayer);
+            if (hitColliders.Length > 0)
+            {
+                target = hitColliders[0].transform; // Chọn mục tiêu đầu tiên
+                Debug.Log("Detected new target: " + target.name);
+            }
         }
 
-        // Debug hiển thị SphereCast trong Scene View
-        Debug.DrawRay(transform.position, transform.forward * detectionRadius, Color.red);
+        // Di chuyển tới mục tiêu nếu có
+        if (target != null)
+        {
+            bearController.enabled = false;
+            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+            if (distanceToTarget > stopDistance)
+            {
+                animator.SetBool("Run", true);
+                // Di chuyển đến mục tiêu
+                Vector3 direction = (target.position - transform.position).normalized;
+                transform.position += direction * moveSpeed * Time.deltaTime;
+
+                // Xoay mặt về phía mục tiêu
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+            }
+            else
+            {
+                animator.SetBool("Run", false);
+                animator.SetBool("Attack", true);
+                
+            }
+        }
     }
 
-    private void MoveTowardsPlayer()
+    public void Attack()
     {
-        // Tính khoảng cách tới Player
-        float distance = Vector3.Distance(transform.position, player.position);
+        if (target == null)
+        {
+            return;
+        }
+        target.GetComponent<PlayerController>().TakeDamege(Damege);
+    }
 
-        // Nếu trong phạm vi tấn công, kích hoạt hoạt ảnh Attack
-        if (distance <= attackRange)
-        {
-            //animator.SetTrigger("Attack");
-            Debug.Log("Tấn công Player!");
-        }
-        else
-        {
-            // Nếu ngoài phạm vi tấn công, di chuyển về phía Player
-            Vector3 direction = (player.position - transform.position).normalized;
-            controller.Speed = controller.Speed * 1.5f;
-            transform.position += direction * controller.Speed * Time.deltaTime;
-            transform.LookAt(player); // Quay mặt về phía Player
-        }
+    public void IsCounter()
+    {
+        animator.SetTrigger("Hit");
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(transform.position, detectionRadius);
-        Gizmos.DrawSphere(transform.position, attackRange);
+        // Vẽ bán kính phát hiện trong Scene
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+
+        // Vẽ khoảng cách dừng trong Scene
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, stopDistance);
     }
 }
+
