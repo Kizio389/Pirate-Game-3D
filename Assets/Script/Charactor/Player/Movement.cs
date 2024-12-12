@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Xml.Serialization;
 using UnityEngine;
-
 public class Movement : MonoBehaviour
 {
     private CharacterController characterController;

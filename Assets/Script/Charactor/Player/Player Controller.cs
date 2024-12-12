@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,17 +13,26 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isParry;
     [SerializeField] Transform bear;
 
+    [Header("Attack")]
+    private Camera cam;
+    [SerializeField] float attackDistance;
+    [SerializeField] LayerMask EnemyLayer;
+    Color raycolor = Color.red;
     // Start is called before the first frame update
     void Start()
     {
         DataPlayer = SingletonIndexPlayer.Instance;
-        animator_Player = GetComponent<Animator>();    }
+        animator_Player = GetComponent<Animator>();   
+        cam = Camera.main;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.DrawRay(cam.transform.position, cam.transform.forward * attackDistance, raycolor, attackDistance);
         AttackController();
         ParryController();
+        
     }
 
     private bool can_Attack = true;
@@ -32,7 +42,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animator_Player.SetTrigger("Attack");
-            
+            AttackRaycast();
         }
     }
 
@@ -49,6 +59,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void CounterAttack()
+    {
+        bear.GetComponent<BearAttack>().IsCounter();
+    }
+
     public void TakeDamege(float Damege)
     {
         if(isParry == true)
@@ -63,8 +78,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void CounterAttack()
+    void AttackRaycast()
     {
-        bear.GetComponent<BearAttack>().IsCounter();
-    }
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward * attackDistance, out RaycastHit hit, attackDistance, EnemyLayer))
+        {
+            if (hit.collider.gameObject.CompareTag("Enemy"))
+            {
+                Debug.Log("Hit Enemy");
+            }
+        }
+    } 
 }
