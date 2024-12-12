@@ -20,6 +20,7 @@ public class DemoPhotonPun : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
 
         buttonCreateRoom.onClick.AddListener(CreateRoom);
+        buttonJoinRoom.onClick.AddListener(JoinRoom);
     }
 
     public override void OnConnectedToMaster()
@@ -64,11 +65,29 @@ public class DemoPhotonPun : MonoBehaviourPunCallbacks
     {
         base.OnCreatedRoom();
         Debug.Log("Create Room Successful");
+
+        PhotonNetwork.LoadLevel("GameMainScene");
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         base.OnCreateRoomFailed(returnCode, message);
         Debug.LogError($"Create Room Failed (Code: {returnCode}): {message}");
      
+    }
+
+    public void JoinRoom()
+    {
+        PhotonNetwork.JoinRoom(IpRoomName.text);
+    }
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        Debug.Log("Da vao room");
+        PhotonNetwork.LoadLevel("GameMainScene");
+    }
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        base.OnJoinRoomFailed(returnCode, message);
+        Debug.Log("Join room failed : " + message);
     }
 }
