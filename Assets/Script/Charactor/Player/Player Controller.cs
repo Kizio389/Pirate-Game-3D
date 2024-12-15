@@ -1,69 +1,80 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+﻿using Photon.Pun;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPun
 {
-
     SingletonIndexPlayer DataPlayer;
     Animator animator_Player;
 
     [SerializeField] bool isParry;
     [SerializeField] Transform bear;
 
-    // Start is called before the first frame update
     void Start()
     {
         DataPlayer = SingletonIndexPlayer.Instance;
-        animator_Player = GetComponent<Animator>();    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        AttackController();
-        ParryController();
+        animator_Player = GetComponent<Animator>();
     }
 
-    private bool can_Attack = true;
-    [SerializeField] float TimeToAttack = 1f;
-    void AttackController()
+    void Update()
+    {
+        if (!photonView.IsMine) return;
+
+        HandleAttack();
+        HandleParry();
+    }
+
+    void HandleAttack()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            animator_Player.SetTrigger("Attack");
-            
+            photonView.RPC("TriggerAttack", RpcTarget.All);
         }
     }
 
-    void ParryController()
+    void HandleParry()
     {
         if (Input.GetKey(KeyCode.Mouse1))
         {
             isParry = true;
-            animator_Player.SetTrigger("Parry");
+            photonView.RPC("TriggerParry", RpcTarget.All, true);
         }
         else
         {
             isParry = false;
+            photonView.RPC("TriggerParry", RpcTarget.All, false);
         }
     }
 
-    public void TakeDamege(float Damege)
+    [PunRPC]
+    void TriggerAttack()
     {
-        if(isParry == true)
+        animator_Player.SetTrigger("Attack");
+    }
+
+    [PunRPC]
+    void TriggerParry(bool state)
+    {
+        isParry = state;
+        if (state) animator_Player.SetTrigger("Parry");
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (isParry)
         {
-            animator_Player.SetTrigger("Counter Attack");
+            photonView.RPC("CounterAttack", RpcTarget.All);
             return;
         }
-        DataPlayer.Health -= Damege;
-        if (DataPlayer.Health < 0)
+
+        DataPlayer.Health -= damage;
+        if (DataPlayer.Health <= 0)
         {
-            Debug.Log("Player Is Death");
+            Debug.Log("Player is Dead");
         }
     }
 
-    public void CounterAttack()
+    [PunRPC]
+    void CounterAttack()
     {
         bear.GetComponent<BearAttack>().IsCounter();
     }

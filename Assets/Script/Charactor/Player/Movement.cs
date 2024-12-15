@@ -1,110 +1,109 @@
-﻿using System;
-using System.Collections;
-using System.Xml.Serialization;
+﻿using Photon.Pun;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement : MonoBehaviourPun
 {
     private CharacterController characterController;
     private Animator animator_Player;
 
     [SerializeField] private float SpeedToWalk = 1f;
     [SerializeField] private float SpeedToRun = 3f;
-    [SerializeField] private bool isAttack;
     private bool isRun = false;
 
-    InformationIndexPlayer UIPlayer;
+    private Transform cameraTransform; // Tham chiếu đến camera chính
+
     SingletonIndexPlayer DataPlayer;
+
     private void Awake()
     {
         animator_Player = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
-
-        UIPlayer = characterController.GetComponent<InformationIndexPlayer>();
         DataPlayer = SingletonIndexPlayer.Instance;
-    }
 
+        // Lấy tham chiếu đến camera chính
+        cameraTransform = Camera.main.transform;
+    }
 
     private void Update()
     {
-        
-        if (isAttack == false)
+        if (!photonView.IsMine) return; // Chỉ điều khiển nhân vật sở hữu
+
+        HandleCameraRotation(); // Xoay camera theo chuột
+        HandleMovement();       // Di chuyển nhân vật
+
+        if (!isRun && DataPlayer.Stamina < DataPlayer.Max_Stamina)
         {
-            MovementController();
+            DataPlayer.Stamina += 0.2f * Time.deltaTime;
+            photonView.RPC("SyncStamina", RpcTarget.All, DataPlayer.Stamina);
         }
-        //Debug.Log(DataPlayer.Stamina);
-        if(isRun == false)
-        {
-            if(DataPlayer.Stamina >= DataPlayer.Max_Stamina)
-            {
-                return;
-            }
-            DataPlayer.Stamina += .2f;
-        }
-     
     }
-    void MovementController()
+
+    void HandleMovement()
     {
         animator_Player.SetBool("ToWalk", false);
         animator_Player.SetBool("ToRun", false);
-        animator_Player.SetBool("Right", false);
-        animator_Player.SetBool("Left", false);
-        float _Speed = SpeedToWalk;
 
-        Vector3 moveDirection = Vector3.zero; // Khởi tạo hướng di chuyển
+        // Lấy input từ bàn phím
+        float horizontal = Input.GetAxis("Horizontal"); // A (-1) và D (+1)
+        float vertical = Input.GetAxis("Vertical");     // W (+1) và S (-1)
 
-        // Di chuyển tiến/lùi
-        if (Input.GetKey(KeyCode.W))
+        // Tạo hướng di chuyển dựa trên camera
+        Vector3 moveDirection = cameraTransform.right * horizontal + cameraTransform.forward * vertical;
+
+        // Loại bỏ chuyển động theo trục Y
+        moveDirection.y = 0;
+
+        if (moveDirection.magnitude >= 0.1f)
         {
-            moveDirection += transform.forward; // Di chuyển tiến
-            animator_Player.SetBool("ToWalk", true);
-            if (Input.GetKey(KeyCode.LeftShift))
+            float _Speed = SpeedToWalk;
+
+            // Kiểm tra nếu người chơi nhấn Shift để chạy
+            if (Input.GetKey(KeyCode.LeftShift) && DataPlayer.Stamina > 0)
             {
                 isRun = true;
-                if (DataPlayer.Stamina <= 0)
-                {
-                    DataPlayer.Stamina = -1 ;
-                    animator_Player.SetBool("ToWalk", true);
-                }
-                if(DataPlayer.Stamina > 0)
-                {
-                    DataPlayer.Stamina -= .05f;
-                    _Speed = SpeedToRun;
-                    animator_Player.SetBool("ToWalk", false);
-                    animator_Player.SetBool("ToRun", true);
-                }
+                DataPlayer.Stamina -= 0.5f * Time.deltaTime;
+                _Speed = SpeedToRun;
+
+                photonView.RPC("SetAnimation", RpcTarget.All, "ToRun", true);
             }
-            
+            else
+            {
+                isRun = false;
+                photonView.RPC("SetAnimation", RpcTarget.All, "ToWalk", true);
+            }
 
+            // Di chuyển nhân vật
+            characterController.Move(moveDirection.normalized * _Speed * Time.deltaTime);
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.W))
-        {
-            isRun = false;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            moveDirection -= transform.forward; // Di chuyển lùi
-        }
-
-        // Di chuyển trái/phải
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveDirection -= transform.right; // Di chuyển trái
-            animator_Player.SetBool("Left", true);
-            _Speed--;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            moveDirection += transform.right; // Di chuyển phải
-            animator_Player.SetBool("Right", true);
-            _Speed--;
-        }
-
-        // Chuẩn hóa hướng và di chuyển
-        moveDirection = moveDirection.normalized;
-        characterController.Move(moveDirection * _Speed * Time.deltaTime);
     }
 
-    
-}
+    void HandleCameraRotation()
+    {
+        // Xử lý xoay camera theo chuột
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
 
+        // Giới hạn góc quay của camera (để không bị lộn ngược)
+        Vector3 cameraRotation = cameraTransform.localEulerAngles;
+        cameraRotation.x -= mouseY;
+        cameraRotation.x = Mathf.Clamp(cameraRotation.x, -60f, 60f);
+
+        // Xoay camera theo trục Y
+        cameraTransform.localEulerAngles = new Vector3(cameraRotation.x, cameraRotation.y + mouseX, cameraRotation.z);
+
+        // Xoay nhân vật theo camera
+        transform.rotation = Quaternion.Euler(0f, cameraTransform.eulerAngles.y, 0f);
+    }
+
+    [PunRPC]
+    void SyncStamina(float stamina)
+    {
+        DataPlayer.Stamina = stamina;
+    }
+
+    [PunRPC]
+    void SetAnimation(string parameter, bool state)
+    {
+        animator_Player.SetBool(parameter, state);
+    }
+}

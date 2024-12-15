@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class InformationIndexPlayer : MonoBehaviour
 {
     SingletonIndexPlayer DataPlayer;
-
     [SerializeField] private Image Hp_bar;
     [SerializeField] private Image Stamina_bar;
-
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,9 @@ public class InformationIndexPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetUIPlayer();
+       
+            SetUIPlayer();
+        
     }
 
     public void SetUIPlayer()

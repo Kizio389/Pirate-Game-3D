@@ -39,6 +39,14 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - ApplyDamage
+  - SyncStamina
+  - TriggerAttack
+  - TriggerCounterAttack
+  - TriggerParry
+  - AttackTarget
+  - SetAnimation
+  - CounterAttack
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

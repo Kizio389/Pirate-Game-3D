@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 8627397135575534152}
   - component: {fileID: 5241600384076145871}
   - component: {fileID: 2067689929112429565}
+  - component: {fileID: 6927380178293857060}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -483,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b957596b0f200242b8539bbc03d0d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _SkinnedMeshRenderer: {fileID: 0}
+  _SkinnedMeshRenderer: {fileID: 1533505848170373519}
   _Collider: {fileID: 2298084117729646390}
 --- !u!114 &571409097338332000
 MonoBehaviour:
@@ -497,9 +498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d446867762e4189498b44de6e133a87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWalk: 2.5
-  SpeedToRun: 6
-  isAttack: 0
+  SpeedToWalk: 1
+  SpeedToRun: 3
 --- !u!114 &2956733571224529963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,8 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isParry: 0
-  bear: {fileID: 0}
-  TimeToAttack: 1
+  bear: {fileID: 7292658344771522932, guid: f5b41ba4c79702547a89de7544b80656, type: 3}
 --- !u!114 &5241600384076145871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,10 +568,27 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 6927380178293857060}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &6927380178293857060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032430392246539673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
+  m_UseLocal: 1
 --- !u!1 &1080449616886274511
 GameObject:
   m_ObjectHideFlags: 0
@@ -4015,7 +4031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff55aecf3ce37c2459bb678a300cf868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 40
+  mouseSensitivity: 50
   playerBody: {fileID: 6179650731756719101}
 --- !u!1 &6572228912491652385
 GameObject:

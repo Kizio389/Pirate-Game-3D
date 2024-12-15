@@ -2023,6 +2023,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed4171d29ca7664783cc5dd3a93247c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayLength: 5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  rotationSpeed: 30
+  coneAngle: 45
+  rayCount: 10
+  rayColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  Heath: 200
+  Speed: 0
 --- !u!1 &8002475675295336084
 GameObject:
   m_ObjectHideFlags: 0

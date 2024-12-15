@@ -92,7 +92,7 @@ public class BearAttack : MonoBehaviour
         {
             return;
         }
-        target.GetComponent<PlayerController>().TakeDamege(Damege);
+        target.GetComponent<PlayerController>().TakeDamage(Damege);
     }
 
     public void IsCounter()
