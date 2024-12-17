@@ -2,8 +2,11 @@
 using System.Collections;
 using System.Xml.Serialization;
 using UnityEngine;
+using Photon.Pun;
 public class Movement : MonoBehaviour
 {
+    PhotonView photonView;
+
     private CharacterController characterController;
     private Animator animator_Player;
 
@@ -16,6 +19,8 @@ public class Movement : MonoBehaviour
     SingletonIndexPlayer DataPlayer;
     private void Awake()
     {
+        photonView = GetComponent<PhotonView>();
+
         animator_Player = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
 
@@ -26,21 +31,19 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        
-        if (isAttack == false)
+        if (!photonView.IsMine)
         {
             MovementController();
-        }
-        //Debug.Log(DataPlayer.Stamina);
-        if(isRun == false)
-        {
-            if(DataPlayer.Stamina >= DataPlayer.Max_Stamina)
+            //Debug.Log(DataPlayer.Stamina);
+            if (isRun == false)
             {
-                return;
+                if (DataPlayer.Stamina >= DataPlayer.Max_Stamina)
+                {
+                    return;
+                }
+                DataPlayer.Stamina += .2f;
             }
-            DataPlayer.Stamina += .2f;
         }
-     
     }
     void MovementController()
     {

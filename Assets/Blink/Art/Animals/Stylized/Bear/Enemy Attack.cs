@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BearAttack : MonoBehaviour
+public class EnemyAttack : MonoBehaviour
 {
     public float detectionRadius = 5f;  // Bán kính phát hiện
     public LayerMask detectionLayer;    // Layer của vật thể cần phát hiện

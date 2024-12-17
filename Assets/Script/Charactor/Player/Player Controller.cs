@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Photon.Pun;
 
 public class PlayerController : MonoBehaviour
 {
+    PhotonView photonView;
 
     SingletonIndexPlayer DataPlayer;
     Animator animator_Player;
@@ -18,9 +20,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float attackDistance;
     [SerializeField] LayerMask EnemyLayer;
     Color raycolor = Color.red;
+
+    [Header("Combo Attack")]
+    [SerializeField] float coolDownTime = 2f;
+    [SerializeField] float nextFireTime = 0f;
+    [SerializeField] static int noOfClicks = 0;
+    [SerializeField] float lastClickedTime = 0;
+    [SerializeField] float maxComboDelay = 1;
+
     // Start is called before the first frame update
     void Start()
     {
+        photonView = GetComponent<PhotonView>();
         DataPlayer = SingletonIndexPlayer.Instance;
         animator_Player = GetComponent<Animator>();   
         cam = Camera.main;
@@ -29,22 +40,51 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.DrawRay(cam.transform.position, cam.transform.forward * attackDistance, raycolor, attackDistance);
-        AttackController();
-        ParryController();
-        
-    }
-
-    private bool can_Attack = true;
-    [SerializeField] float TimeToAttack = 1f;
-    void AttackController()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (!photonView.IsMine)
         {
-            animator_Player.SetTrigger("Attack");
-            AttackRaycast();
+            AttackController();
+            ParryController();
         }
     }
+
+    void AttackController()
+    {
+        if (Time.time - lastClickedTime > maxComboDelay)
+        {
+            noOfClicks = 0;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            
+            HandleAttack();
+        }
+    }
+
+    void HandleAttack()
+    {
+        lastClickedTime = Time.time;
+        noOfClicks = Mathf.Clamp(noOfClicks + 1, 0, 3);
+
+        AnimatorStateInfo currentState = animator_Player.GetCurrentAnimatorStateInfo(0);
+
+        if (noOfClicks == 1)
+        {
+            Debug.Log("Combo 1");
+            animator_Player.SetTrigger("Attack1");
+        }
+        else if (noOfClicks == 2 && currentState.normalizedTime > 0.2f && currentState.IsName("Attack1"))
+        {
+            Debug.Log("Combo 2");
+            animator_Player.SetTrigger("Attack2");
+        }
+        else if (noOfClicks == 3 && currentState.normalizedTime > 0.2f && currentState.IsName("Attack2"))
+        {
+            Debug.Log("Combo 3");
+            animator_Player.SetTrigger("Attack3");
+        }
+    }
+
+
 
     void ParryController()
     {
@@ -61,7 +101,7 @@ public class PlayerController : MonoBehaviour
 
     public void CounterAttack()
     {
-        bear.GetComponent<BearAttack>().IsCounter();
+        bear.GetComponent<EnemyAttack>().IsCounter();
     }
 
     public void TakeDamege(float Damege)
@@ -77,6 +117,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player Is Death");
         }
     }
+
 
     void AttackRaycast()
     {

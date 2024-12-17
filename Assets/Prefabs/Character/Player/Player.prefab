@@ -2993,16 +2993,13 @@ PrefabInstance:
       addedObject: {fileID: 3852072497529282765}
     - targetCorrespondingSourceObject: {fileID: 100038, guid: 47d445364fdde5e4ea2c0a20ecaae6cb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7430981461043607253}
-    - targetCorrespondingSourceObject: {fileID: 100038, guid: 47d445364fdde5e4ea2c0a20ecaae6cb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 969739200000170444}
     - targetCorrespondingSourceObject: {fileID: 100038, guid: 47d445364fdde5e4ea2c0a20ecaae6cb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7302526707134988053}
+      addedObject: {fileID: 7430981461043607253}
     - targetCorrespondingSourceObject: {fileID: 100038, guid: 47d445364fdde5e4ea2c0a20ecaae6cb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2405444924259152112}
+      addedObject: {fileID: 7302526707134988053}
   m_SourcePrefab: {fileID: 100100000, guid: 47d445364fdde5e4ea2c0a20ecaae6cb, type: 3}
 --- !u!4 &5842113608231189423 stripped
 Transform:
@@ -3081,6 +3078,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _SkinnedMeshRenderer: {fileID: 0}
   _Collider: {fileID: 320512653150052200}
+--- !u!114 &969739200000170444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5842113608231675855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ed228aa6952304589701f1bf9d913c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp_bar: {fileID: 0}
+  Stamina_bar: {fileID: 0}
 --- !u!114 &7430981461043607253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3096,21 +3107,6 @@ MonoBehaviour:
   SpeedToWalk: 2.5
   SpeedToRun: 6
   isAttack: 0
-  TimeToAttack: 1
---- !u!114 &969739200000170444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5842113608231675855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0ed228aa6952304589701f1bf9d913c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp_bar: {fileID: 0}
-  Stamina_bar: {fileID: 0}
 --- !u!114 &7302526707134988053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3123,30 +3119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd29a4eac665f64a8da41a889410449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2405444924259152112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5842113608231675855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fab5212c04fb442799fa9f3f33247ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5842113608238929001}
-  propBoneConfig: {fileID: 11400000, guid: 5c820f866b3390e47babe96ce495c257, type: 2}
-  updateType: 2
-  updateInEditMode: 1
-  rebindOnAwake: 0
-  _propBoneBindings:
-  - bone: {fileID: 2858420167912177098}
-    socket: {fileID: 8371339108938333952}
-    rotationOffset: {x: 0.0000072411126, y: -0.00001045264, z: 270.14746}
-    scale: 1.0000054
---- !u!95 &5842113608238929001 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9500000, guid: 47d445364fdde5e4ea2c0a20ecaae6cb, type: 3}
-  m_PrefabInstance: {fileID: 5842113608231575817}
-  m_PrefabAsset: {fileID: 0}
+  isParry: 0
+  bear: {fileID: 0}
+  attackDistance: 1.5
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  TimeToAttack: 1

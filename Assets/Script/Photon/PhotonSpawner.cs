@@ -14,8 +14,7 @@ public class PhotonSpawner : MonoBehaviour
         GameObject player = PhotonNetwork.Instantiate(
         "Player",
         spawnPoint.transform.position,
-        spawnPoint.transform.rotation
-    );
+        spawnPoint.transform.rotation );
     }
 
     // Update is called once per frame
