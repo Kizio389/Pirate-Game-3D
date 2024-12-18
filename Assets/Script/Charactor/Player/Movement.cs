@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (!photonView.IsMine)
+        if (photonView.IsMine)
         {
             MovementController();
             //Debug.Log(DataPlayer.Stamina);

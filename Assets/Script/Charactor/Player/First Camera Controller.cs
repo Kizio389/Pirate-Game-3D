@@ -18,7 +18,7 @@ public class FirstCameraController : MonoBehaviour
 
     void Update()
     {
-        if (!phontonView.IsMine)
+        if (phontonView.IsMine)
         {
             // Lấy thông tin di chuyển chuột
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
