@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-namespace LowPolyWater2
+namespace LowPolyWater
 {
     public class LowPolyWater : MonoBehaviour
     {
-        public static LowPolyWater instance;
         public float waveHeight = 0.5f;
         public float waveFrequency = 0.5f;
         public float waveLength = 0.75f;
@@ -20,14 +19,6 @@ namespace LowPolyWater2
         {
             //Get the Mesh Filter of the gameobject
             meshFilter = GetComponent<MeshFilter>();
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else if (instance != null)
-            {
-                Destroy(this);
-            }
         }
 
         void Start()
@@ -52,7 +43,7 @@ namespace LowPolyWater2
 
             //Create a vector array for new vertices 
             Vector3[] vertices = new Vector3[triangles.Length];
-
+            
             //Assign vertices to create triangles out of the mesh
             for (int i = 0; i < triangles.Length; i++)
             {
@@ -69,7 +60,7 @@ namespace LowPolyWater2
 
             return mf;
         }
-
+        
         void Update()
         {
             GenerateWaves();
@@ -95,7 +86,7 @@ namespace LowPolyWater2
                 //Oscilate the wave height via sine to create a wave effect
                 v.y = waveHeight * Mathf.Sin(Time.time * Mathf.PI * 2.0f * waveFrequency
                 + (Mathf.PI * 2.0f * distance));
-
+                
                 //Update the vertex
                 vertices[i] = v;
             }
@@ -106,11 +97,5 @@ namespace LowPolyWater2
             mesh.MarkDynamic();
             meshFilter.mesh = mesh;
         }
-        public float GetWaveHeight(float _x)
-        {
-            return waveHeight * Mathf.Sin(_x / waveLength + waveFrequency);
-        }
     }
-
 }
-
