@@ -496,9 +496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d446867762e4189498b44de6e133a87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWalk: 2.5
-  SpeedToRun: 6
-  isAttack: 0
+  SpeedToWalk: 1
+  SpeedToRun: 3
 --- !u!114 &2956733571224529963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,16 +524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd29a4eac665f64a8da41a889410449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isParry: 0
-  bear: {fileID: 0}
-  attackDistance: 1.5
-  EnemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  coolDownTime: 0.8
-  nextFireTime: 0
-  lastClickedTime: 0
-  maxComboDelay: 1
 --- !u!114 &2067689929112429565
 MonoBehaviour:
   m_ObjectHideFlags: 0

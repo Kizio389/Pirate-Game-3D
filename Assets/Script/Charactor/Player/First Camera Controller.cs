@@ -2,38 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class FirstCameraController : MonoBehaviour
+public class FirstCameraController : MonoBehaviourPun
 {
-    [SerializeField] public float mouseSensitivity = 100f; // Độ nhạy của chuột
-    [SerializeField] public Transform playerBody;         // Gắn Player Body để xoay theo trục Y
-    private float xRotation = 0f;        // Biến lưu góc xoay theo trục X
+    [SerializeField] public float mouseSensitivity = 100f; // Độ nhạy chuột
+    [SerializeField] public Transform playerBody;         // Player Body để xoay
+    private float xRotation = 0f;
 
-    PhotonView phontonView;
     void Start()
     {
-        // Khóa con trỏ chuột vào màn hình
-        Cursor.lockState = CursorLockMode.Locked;
-        phontonView = GetComponentInParent<PhotonView>();
+        if (!photonView.IsMine)
+        {
+            gameObject.SetActive(false); // Vô hiệu hóa camera cho các người chơi khác
+            return;
+        }
+
+        Cursor.lockState = CursorLockMode.Locked; // Khóa con trỏ chuột vào màn hình
     }
 
     void Update()
     {
-        if (phontonView.IsMine)
-        {
-            // Lấy thông tin di chuyển chuột
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (!photonView.IsMine) return; // Chỉ điều khiển camera của người chơi sở hữu
 
-            // Tính toán góc xoay theo trục X
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Giới hạn góc nhìn lên xuống
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-            // Xoay camera theo trục X
-            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            // Xoay player theo trục Y
-            playerBody.Rotate(Vector3.up * mouseX);
-        }
-       
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
     }
 }

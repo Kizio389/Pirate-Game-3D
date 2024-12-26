@@ -1,132 +1,136 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 using Photon.Pun;
+using System.Collections;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPun
 {
-    PhotonView photonView;
-
-    SingletonIndexPlayer DataPlayer;
     Animator animator_Player;
 
-    [SerializeField] bool isParry;
-    [SerializeField] Transform bear;
+    private float health;
+    private float maxHealth;
+    private float currentStamina;
+    private float maxStamina;
+    private float staminaRegenRate = 5f;
 
-    [Header("Attack")]
-    private Camera cam;
-    [SerializeField] float attackDistance;
-    [SerializeField] LayerMask EnemyLayer;
-    Color raycolor = Color.red;
+    private bool isAttacking = false;
+    private bool isParrying = false;
 
-    [Header("Combo Attack")]
-    [SerializeField] float coolDownTime = 2f;
-    [SerializeField] float nextFireTime = 0f;
-    [SerializeField] static int noOfClicks = 0;
-    [SerializeField] float lastClickedTime = 0;
-    [SerializeField] float maxComboDelay = 1;
-
-    // Start is called before the first frame update
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
-        DataPlayer = SingletonIndexPlayer.Instance;
-        animator_Player = GetComponent<Animator>();   
-        cam = Camera.main;
+        // Lấy giá trị từ PlayerPrefs trong hàm Start
+        health = PlayerPrefsManager.GetHealth();
+        maxHealth = PlayerPrefsManager.GetMaxHealth();
+        currentStamina = PlayerPrefsManager.GetStamina();
+        maxStamina = PlayerPrefsManager.GetMaxStamina();
+
+        animator_Player = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!photonView.IsMine)
-        {
-            AttackController();
-            ParryController();
-        }
-    }
+        if (!photonView.IsMine) return;
 
-    void AttackController()
+        HandleMovement();
+        HandleAttack();
+        HandleParry();
+    }
+    [PunRPC]
+    void HandleMovement()
     {
-        if (Time.time - lastClickedTime > maxComboDelay)
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        bool isMoving = horizontal != 0 || vertical != 0;
+        bool canRun = Input.GetKey(KeyCode.LeftShift) && currentStamina > 0;
+
+        float speed = canRun ? 3f : 1f;
+
+        if (canRun)
         {
-            noOfClicks = 0;
+            currentStamina -= 10f * Time.deltaTime;
+            PlayerPrefsManager.SetStamina(currentStamina);
         }
-        if (Input.GetMouseButtonDown(0))
+        else if (currentStamina < maxStamina)
         {
-            
-            HandleAttack();
+            currentStamina += staminaRegenRate * Time.deltaTime;
+            PlayerPrefsManager.SetStamina(currentStamina);
         }
+
+        animator_Player.SetBool("Run", canRun);
+        animator_Player.SetBool("ToWalk", isMoving && !canRun);
     }
 
     void HandleAttack()
     {
-        lastClickedTime = Time.time;
-        noOfClicks = Mathf.Clamp(noOfClicks + 1, 0, 3);
-
-        AnimatorStateInfo currentState = animator_Player.GetCurrentAnimatorStateInfo(0);
-
-        if (noOfClicks == 1)
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Combo 1");
-            animator_Player.SetTrigger("Attack1");
-        }
-        else if (noOfClicks == 2 && currentState.normalizedTime > 0.2f && currentState.IsName("Attack1"))
-        {
-            Debug.Log("Combo 2");
-            animator_Player.SetTrigger("Attack2");
-        }
-        else if (noOfClicks == 3 && currentState.normalizedTime > 0.2f && currentState.IsName("Attack2"))
-        {
-            Debug.Log("Combo 3");
-            animator_Player.SetTrigger("Attack3");
-        }
-    }
-
-
-
-    void ParryController()
-    {
-        if (Input.GetKey(KeyCode.Mouse1))
-        {
-            isParry = true;
-            animator_Player.SetTrigger("Parry");
-        }
-        else
-        {
-            isParry = false;
-        }
-    }
-
-    public void CounterAttack()
-    {
-        bear.GetComponent<EnemyAttack>().IsCounter();
-    }
-
-    public void TakeDamege(float Damege)
-    {
-        if(isParry == true)
-        {
-            animator_Player.SetTrigger("Counter Attack");
-            return;
-        }
-        DataPlayer.Health -= Damege;
-        if (DataPlayer.Health < 0)
-        {
-            Debug.Log("Player Is Death");
-        }
-    }
-
-
-    void AttackRaycast()
-    {
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward * attackDistance, out RaycastHit hit, attackDistance, EnemyLayer))
-        {
-            if (hit.collider.gameObject.CompareTag("Enemy"))
+            if (!isAttacking)
             {
-                Debug.Log("Hit Enemy");
+                StartCoroutine(PerformAttack("Attack1"));
             }
         }
-    } 
+    }
+
+    IEnumerator PerformAttack(string attackTrigger)
+    {
+        isAttacking = true;
+        animator_Player.SetTrigger(attackTrigger);
+
+        yield return new WaitForSeconds(1f);
+        isAttacking = false;
+    }
+
+    void HandleParry()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            if (!isParrying)
+            {
+                isParrying = true;
+                photonView.RPC("TriggerParry", RpcTarget.All, true);
+            }
+        }
+        else if (isParrying)
+        {
+            isParrying = false;
+            photonView.RPC("TriggerParry", RpcTarget.All, false);
+        }
+    }
+
+    [PunRPC]
+    void TriggerParry(bool state)
+    {
+        animator_Player.SetBool("Parry", state);
+    }
+
+    [PunRPC]
+    public void TakeDamage(float damage)
+    {
+        if (isParrying)
+        {
+            Debug.Log("Damage blocked by Parry!");
+            return;
+        }
+
+        health -= damage;
+        PlayerPrefsManager.SetHealth(Mathf.Max(health, 0));
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void TakeDamageFromEnemy(float damage)
+    {
+        if (!photonView.IsMine) return;
+
+        photonView.RPC("TakeDamage", RpcTarget.AllBuffered, damage);
+    }
+
+    void Die()
+    {
+        animator_Player.SetTrigger("Die");
+        enabled = false;
+    }
 }
