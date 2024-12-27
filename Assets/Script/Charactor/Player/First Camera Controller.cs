@@ -7,6 +7,7 @@ public class FirstCameraController : MonoBehaviourPun
     [SerializeField] public float mouseSensitivity = 100f; // Độ nhạy chuột
     [SerializeField] public Transform playerBody;         // Player Body để xoay
     private float xRotation = 0f;
+    private LogicEscToPauseGame logicEscToPauseGame;
 
     void Start()
     {
@@ -21,7 +22,9 @@ public class FirstCameraController : MonoBehaviourPun
 
     void Update()
     {
-        if (!photonView.IsMine) return; // Chỉ điều khiển camera của người chơi sở hữu
+        if (!photonView.IsMine) return;
+
+        if (PauseMenuActive()) return; // Dừng xoay camera khi PauseMenu đang bật
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -31,5 +34,11 @@ public class FirstCameraController : MonoBehaviourPun
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    // Hàm kiểm tra trạng thái PauseMenu
+     private bool PauseMenuActive()
+    {
+        return logicEscToPauseGame != null && logicEscToPauseGame.PauseMenu.activeSelf;
     }
 }
