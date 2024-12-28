@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviourPun
 
         if (canRun)
         {
-            currentStamina -= 10f * Time.deltaTime;
+            currentStamina -= 1f * Time.deltaTime;
             PlayerPrefsManager.SetStamina(currentStamina);
         }
         else if (currentStamina < maxStamina)

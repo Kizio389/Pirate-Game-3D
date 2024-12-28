@@ -64,13 +64,14 @@ public class InformationIndexPlayer : MonoBehaviour
             if (currentStamina < 0)
                 currentStamina = 0;
         }
-        else
-        {
-            isRunning = false;
-            currentStamina += staminaRegenRate * Time.deltaTime;
-            if (currentStamina > maxStamina)
-                currentStamina = maxStamina;
-        }
+        //Không hồi khi đứng yên
+        //else
+        //{
+        //    isRunning = false;
+        //    currentStamina += staminaRegenRate * Time.deltaTime;
+        //    if (currentStamina > maxStamina)
+        //        currentStamina = maxStamina;
+        //}
 
         GetComponent<Animator>().SetBool("Run", isRunning);
         GetComponent<Animator>().SetBool("ToWalk", isMoving && !isRunning);
