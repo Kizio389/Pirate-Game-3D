@@ -16,7 +16,7 @@ MonoBehaviour:
     AppIdRealtime: e9d8b9c5-496c-4586-9463-b1cc64adb212
     AppIdFusion: 
     AppIdChat: fec3f871-cafb-49a1-8eba-b4cfb2288d5d
-    AppIdVoice: 
+    AppIdVoice: f5c24ad7-5ac9-4414-a40e-70b37e83f1d9
     AppVersion: 
     UseNameServer: 1
     FixedRegion: 
@@ -34,23 +34,19 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
+  - CantHearYou
+  - ChangeColour
   - ClickRpc
   - DestroyRpc
+  - HeresWhy
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
-  - ApplyDamage
-  - SyncStamina
-  - TriggerAttack
-  - TriggerCounterAttack
-  - TriggerParry
-  - AttackTarget
-  - SetAnimation
-  - CounterAttack
-  - SyncPlayerState
   - ApplyDamageToPlayer
-  - TakeDamage
   - HandleMovement
+  - SyncPlayerState
+  - TakeDamage
+  - TriggerParry
   DisableAutoOpenWizard: 1
   ShowSettings: 1
-  DevRegionSetOnce: 1
+  DevRegionSetOnce: 0
