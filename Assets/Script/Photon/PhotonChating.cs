@@ -18,7 +18,10 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
 
     public GameObject contentChat;
     public GameObject messagePrefab;
-
+    private void Awake()
+    {
+        ChatConnection();
+    }
     private void Start()
     {
         buttonSend.onClick.AddListener(SendMessage);
@@ -28,7 +31,7 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            ToggleChatConnection();
+            ShowCursor();
         }
 
         if (isConnected)
@@ -37,7 +40,7 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         }
     }
 
-    public void ToggleChatConnection()
+    public void ChatConnection()
     {
         if (!isConnected)
         {
@@ -48,7 +51,6 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
                 new AuthenticationValues(PhotonNetwork.LocalPlayer.NickName));
 
             isConnected = true;
-            ShowCursor(true); // Hiện chuột khi kết nối
         }
         else
         {
@@ -58,7 +60,7 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
             chatClient.Disconnect();
 
             isConnected = false;
-            ShowCursor(false); // Ẩn chuột khi ngắt kết nối
+             // Ẩn chuột khi ngắt kết nối
         }
     }
 
@@ -71,10 +73,10 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         }
     }
 
-    private void ShowCursor(bool isVisible)
+    private void ShowCursor()
     {
-        Cursor.visible = isVisible; // Hiển thị hoặc ẩn con trỏ chuột
-        Cursor.lockState = isVisible ? CursorLockMode.None : CursorLockMode.Locked; // Mở khóa hoặc khóa con trỏ
+        Cursor.visible = !Cursor.visible; // Đảo ngược trạng thái hiển thị con trỏ
+        Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked; // Khóa hoặc mở khóa con trỏ
     }
 
     public void DebugReturn(DebugLevel level, string message)
