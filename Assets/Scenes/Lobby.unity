@@ -2441,6 +2441,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BT Play
       objectReference: {fileID: 0}
+    - target: {fileID: 6961187296047073507, guid: b8fa788eb3193314ab61988ad8f868a1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6961187296047073508, guid: b8fa788eb3193314ab61988ad8f868a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

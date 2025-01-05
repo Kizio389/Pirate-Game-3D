@@ -8,9 +8,8 @@ public class PlayerController : MonoBehaviourPun
 
     private float health;
     private float maxHealth;
-    private float currentStamina;
-    private float maxStamina;
-    private float staminaRegenRate = 5f;
+    
+    
 
     private bool isAttacking = false;
     private bool isParrying = false;
@@ -20,8 +19,7 @@ public class PlayerController : MonoBehaviourPun
         // Lấy giá trị từ PlayerPrefs trong hàm Start
         health = PlayerPrefsManager.GetHealth();
         maxHealth = PlayerPrefsManager.GetMaxHealth();
-        currentStamina = PlayerPrefsManager.GetStamina();
-        maxStamina = PlayerPrefsManager.GetMaxStamina();
+        
 
         animator_Player = GetComponent<Animator>();
     }
@@ -30,35 +28,11 @@ public class PlayerController : MonoBehaviourPun
     {
         if (!photonView.IsMine) return;
 
-        HandleMovement();
+       
         HandleAttack();
         HandleParry();
     }
-    [PunRPC]
-    void HandleMovement()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        bool isMoving = horizontal != 0 || vertical != 0;
-        bool canRun = Input.GetKey(KeyCode.LeftShift) && currentStamina > 0;
-
-        float speed = canRun ? 3f : 1f;
-
-        if (canRun)
-        {
-            currentStamina -= 1f * Time.deltaTime;
-            PlayerPrefsManager.SetStamina(currentStamina);
-        }
-        else if (currentStamina < maxStamina)
-        {
-            currentStamina += staminaRegenRate * Time.deltaTime;
-            PlayerPrefsManager.SetStamina(currentStamina);
-        }
-
-        animator_Player.SetBool("Run", canRun);
-        animator_Player.SetBool("ToWalk", isMoving && !canRun);
-    }
+   
 
     void HandleAttack()
     {
@@ -97,13 +71,11 @@ public class PlayerController : MonoBehaviourPun
         }
     }
 
-    [PunRPC]
     void TriggerParry(bool state)
     {
         animator_Player.SetBool("Parry", state);
     }
 
-    [PunRPC]
     public void TakeDamage(float damage)
     {
         if (isParrying)

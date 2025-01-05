@@ -15,9 +15,7 @@ public class InformationIndexPlayer : MonoBehaviour
     private float maxStamina = 100f;                // Giá trị stamina tối đa
     private float currentStamina = 100f;            // Giá trị stamina hiện tại
     private float staminaDrainRate = 10f;           // Tốc độ giảm stamina khi chạy
-    private float staminaRegenRate = 5f;            // Tốc độ hồi stamina khi đi bộ hoặc đứng yên
-    private bool isRunning = false;                 // Trạng thái chạy
-    private bool isWalking = false;                 // Trạng thái đi bộ
+   
 
     void Start()
     {
@@ -59,7 +57,6 @@ public class InformationIndexPlayer : MonoBehaviour
 
         if (canRun)
         {
-            isRunning = true;
             currentStamina -= staminaDrainRate * Time.deltaTime;
             if (currentStamina < 0)
                 currentStamina = 0;
@@ -73,8 +70,7 @@ public class InformationIndexPlayer : MonoBehaviour
         //        currentStamina = maxStamina;
         //}
 
-        GetComponent<Animator>().SetBool("Run", isRunning);
-        GetComponent<Animator>().SetBool("ToWalk", isMoving && !isRunning);
+       
     }
 
 

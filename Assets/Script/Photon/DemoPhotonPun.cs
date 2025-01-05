@@ -102,9 +102,9 @@ public class DemoPhotonPun : MonoBehaviourPunCallbacks
         }
 
         // Kiểm tra số lượng người chơi hợp lệ
-        if (!int.TryParse(maxPlayer.text, out int maxPlayers) || maxPlayers <= 0 || maxPlayers > 20)
+        if (!int.TryParse(maxPlayer.text, out int maxPlayers) || maxPlayers <= 0 || maxPlayers > 4)
         {
-            Debug.LogError("Số lượng người chơi không hợp lệ! Vui lòng nhập số từ 1 đến 20.");
+            Debug.LogError("Số lượng người chơi không hợp lệ! Vui lòng nhập số từ 1 đến 4.");
             return;
         }
 
@@ -269,6 +269,7 @@ public class DemoPhotonPun : MonoBehaviourPunCallbacks
         }
         playerListGameObject.Add(newPlayer.ActorNumber, playerListItem);
 
+
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
@@ -290,7 +291,7 @@ public class DemoPhotonPun : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.LoadLevel("GameMainScene");
         }
-        
+
     }
 
     public override void OnLeftRoom()

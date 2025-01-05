@@ -1,55 +1,81 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Photon.Pun; // Thư viện Photon
 
-public class InventorySystem : MonoBehaviour
+public class InventorySystem : MonoBehaviourPun
 {
-    public static InventorySystem Instance { get; set; }
+    [Header("UI Elements")]
+    public GameObject inventoryScreenUI; // Giao diện Inventory
 
-    public GameObject inventoryScreenUI;
-    public bool isOpen;
+    [Header("Settings")]
+    public KeyCode toggleKey1 = KeyCode.I; // Phím tắt chính
+    public KeyCode toggleKey2 = KeyCode.Tab; // Phím tắt phụ
 
+    private bool isOpen;
 
-    private void Awake()
+    private void Start()
     {
-        if (Instance != null && Instance != this)
+        // Chỉ xử lý Inventory cho nhân vật của người chơi hiện tại
+        if (!photonView.IsMine)
         {
-            Destroy(gameObject);
+            enabled = false; // Vô hiệu hóa script nếu không phải của người chơi cục bộ
+            return;
+        }
+
+        isOpen = false;
+
+        // Tìm UI trong con của nhân vật nếu chưa được gán
+        if (inventoryScreenUI == null)
+        {
+            inventoryScreenUI = transform.Find("InventoryScreenUI")?.gameObject; // Đảm bảo đúng tên của UI
+        }
+
+        if (inventoryScreenUI != null)
+        {
+            inventoryScreenUI.SetActive(false); // Ẩn Inventory ban đầu
         }
         else
         {
-            Instance = this;
+            Debug.LogError("Không tìm thấy InventoryScreenUI! Hãy gán thủ công trong Inspector.");
         }
     }
 
-
-    void Start()
+    private void Update()
     {
-        isOpen = false;
-        
-    }
-
-
-    void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.I) && !isOpen)
-        {  
-            Debug.Log("i is pressed");
-            inventoryScreenUI.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            
-            isOpen = true;
-
-        }
-        else if (Input.GetKeyDown(KeyCode.I) && isOpen)
+        // Chỉ xử lý phím tắt cho người chơi cục bộ
+        if (photonView.IsMine && (Input.GetKeyDown(toggleKey1) || Input.GetKeyDown(toggleKey2)))
         {
-            inventoryScreenUI.SetActive(false);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            isOpen = false;
+            ToggleInventory();
         }
+    }
+
+    /// <summary>
+    /// Bật hoặc tắt giao diện Inventory.
+    /// </summary>
+    public void ToggleInventory()
+    {
+        if (inventoryScreenUI != null)
+        {
+            isOpen = !isOpen; // Đảo trạng thái
+            inventoryScreenUI.SetActive(isOpen);
+
+            // Hiển thị/mở khóa chuột khi mở inventory
+            Cursor.visible = isOpen;
+            Cursor.lockState = isOpen ? CursorLockMode.None : CursorLockMode.Locked;
+
+            Debug.Log($"Inventory is now {(isOpen ? "opened" : "closed")}.");
+        }
+        else
+        {
+            Debug.LogError("InventoryScreenUI không được gán!");
+        }
+    }
+
+    /// <summary>
+    /// Kiểm tra trạng thái mở/tắt của Inventory.
+    /// </summary>
+    /// <returns>True nếu Inventory đang mở, False nếu đóng.</returns>
+    public bool IsInventoryOpen()
+    {
+        return isOpen;
     }
 }

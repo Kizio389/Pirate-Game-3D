@@ -8,7 +8,6 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private Material transparentMaterial;      // Material trong suốt
     [SerializeField] private float coneAngle = 30f;             // Góc mở của hình nón cụt (tính từ tâm)
     [SerializeField] private float maxDistance = 10f;           // Khoảng cách tối đa của hình nón cụt
-    [SerializeField] private float topRadius = 0.5f;            // Bán kính trên cùng của hình nón cụt
     [SerializeField] private float bottomRadius = 1f;          // Bán kính dưới cùng của hình nón cụt
 
     private List<Renderer> transparentObjects = new List<Renderer>(); // Danh sách các vật đã bị thay material
