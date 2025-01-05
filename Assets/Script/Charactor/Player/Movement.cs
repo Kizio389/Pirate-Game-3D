@@ -8,6 +8,9 @@ public class Movement : MonoBehaviourPun
 
     [SerializeField] private float SpeedToWalk = 1f;
     [SerializeField] private float SpeedToRun = 3f;
+    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float gravity = -9.81f;
+    private Vector3 velocity;
     private Transform cameraTransform;
 
     private float currentStamina;
@@ -42,7 +45,7 @@ public class Movement : MonoBehaviourPun
             photonView.RPC("SyncPlayerState", RpcTarget.Others, transform.position, transform.rotation);
             wasMoving = isMoving;
         }
-
+        HandleJump();
         HandleMovement();
     }
     [PunRPC]
@@ -80,6 +83,7 @@ public class Movement : MonoBehaviourPun
             }
             isRunning = false;
         }
+        
 
         // Cập nhật trạng thái vào PlayerPrefs
         PlayerPrefsManager.SetStamina(currentStamina);
@@ -89,7 +93,40 @@ public class Movement : MonoBehaviourPun
         animator_Player.SetFloat("Horizontal", horizontal);
         animator_Player.SetFloat("Vertical", vertical);
     }
+    void HandleJump()
+    {
+        // Kiểm tra xem nhân vật có đang chạm đất không
+        if (characterController.isGrounded)
+        {
+            // Đặt vận tốc trục Y về 0 khi chạm đất
+            velocity.y = 0;
 
+            // Nếu trước đó nhân vật không ở trạng thái chạm đất, bật trigger "Lander"
+            if (!animator_Player.GetBool("Lander"))
+            {
+                animator_Player.SetTrigger("Lander");
+            }
+
+            // Kiểm tra phím nhảy
+            if (Input.GetButtonDown("Jump")) // Phím nhảy mặc định là Space
+            {
+                animator_Player.ResetTrigger("Lander"); // Đảm bảo không bị xung đột trigger
+                animator_Player.SetTrigger("IsJump"); // Kích hoạt hoạt ảnh nhảy
+                velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity); // Tính vận tốc nhảy
+            }
+        }
+        else
+        {
+            // Nếu nhân vật đang rơi, không ở trạng thái chạm đất
+            animator_Player.ResetTrigger("Lander");
+        }
+
+        // Thêm trọng lực
+        velocity.y += gravity * Time.deltaTime;
+
+        // Áp dụng di chuyển
+        characterController.Move(velocity * Time.deltaTime);
+    }
     [PunRPC]
     void SyncPlayerState(Vector3 position, Quaternion rotation)
     {

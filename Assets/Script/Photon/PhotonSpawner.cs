@@ -6,25 +6,24 @@ using UnityEngine;
 
 public class PhotonSpawner : MonoBehaviour
 {
-
-
-    public GameObject spawnPoint;
+    [SerializeField]
+    public GameObject PlayerPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        GameObject player = PhotonNetwork.Instantiate(
-        "Player",
-        spawnPoint.transform.position,
-        spawnPoint.transform.rotation);
-        DontDestroyOnLoad(gameObject);
+        if (PhotonNetwork.IsConnectedAndReady)
+        {
+            int randomVectorX = Random.Range(79, 88);
+            int randomVectorZ = Random.Range(134, 150);
+            PhotonNetwork.Instantiate(PlayerPrefab.name, new Vector3(randomVectorX, 3f, randomVectorZ), Quaternion.identity);
+        }
+
     }
 
-
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
-        
+
     }
 }
