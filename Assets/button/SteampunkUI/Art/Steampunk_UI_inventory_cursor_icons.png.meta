@@ -108,7 +108,7 @@ TextureImporter:
       213: -5999422824933822019
     second: Steampunk_UI_inventory_cursor_icons_43
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -125,11 +125,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -147,17 +148,17 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -168,6 +169,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -179,6 +182,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -191,6 +195,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -203,6 +208,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -215,6 +221,46 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -225,9 +271,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 69
-        y: 921
-        width: 97
-        height: 97
+        y: 945
+        width: 64
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,9 +292,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 215
-        y: 922
-        width: 97
-        height: 97
+        y: 946
+        width: 63
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,9 +313,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 359
-        y: 926
-        width: 97
-        height: 97
+        y: 950
+        width: 63
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,9 +334,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 524
-        y: 927
-        width: 97
-        height: 97
+        y: 950
+        width: 63
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,10 +354,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_7
       rect:
         serializedVersion: 2
-        x: 747
-        y: 923
-        width: 101
-        height: 101
+        x: 744
+        y: 928
+        width: 64
+        height: 97
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,10 +375,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_8
       rect:
         serializedVersion: 2
-        x: 925
-        y: 927
-        width: 101
-        height: 101
+        x: 922
+        y: 932
+        width: 96
+        height: 97
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,10 +396,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_9
       rect:
         serializedVersion: 2
-        x: 1086
-        y: 926
-        width: 101
-        height: 101
+        x: 1083
+        y: 931
+        width: 66
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,10 +417,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_11
       rect:
         serializedVersion: 2
-        x: 1249
-        y: 918
-        width: 101
-        height: 101
+        x: 1247
+        y: 923
+        width: 68
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -394,7 +440,7 @@ TextureImporter:
         serializedVersion: 2
         x: 101
         y: 764
-        width: 95
+        width: 74
         height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -415,7 +461,7 @@ TextureImporter:
         serializedVersion: 2
         x: 251
         y: 768
-        width: 95
+        width: 74
         height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -436,7 +482,7 @@ TextureImporter:
         serializedVersion: 2
         x: 389
         y: 768
-        width: 95
+        width: 74
         height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -457,7 +503,7 @@ TextureImporter:
         serializedVersion: 2
         x: 515
         y: 771
-        width: 95
+        width: 74
         height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -478,8 +524,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1435
         y: 761
-        width: 148
-        height: 148
+        width: 88
+        height: 122
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -499,7 +545,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1680
         y: 751
-        width: 148
+        width: 88
         height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -520,7 +566,7 @@ TextureImporter:
         serializedVersion: 2
         x: 114
         y: 523
-        width: 142
+        width: 143
         height: 142
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -540,9 +586,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 386
-        y: 516
-        width: 142
-        height: 142
+        y: 515
+        width: 143
+        height: 143
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -561,9 +607,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 657
-        y: 516
+        y: 515
         width: 142
-        height: 142
+        height: 143
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -583,7 +629,7 @@ TextureImporter:
         serializedVersion: 2
         x: 906
         y: 515
-        width: 142
+        width: 143
         height: 142
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -605,7 +651,7 @@ TextureImporter:
         x: 1172
         y: 518
         width: 142
-        height: 142
+        height: 143
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -625,8 +671,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1438
         y: 521
-        width: 142
-        height: 142
+        width: 143
+        height: 143
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -644,10 +690,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_36
       rect:
         serializedVersion: 2
-        x: 76
-        y: 286
-        width: 154
-        height: 151
+        x: 73
+        y: 282
+        width: 165
+        height: 156
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -665,10 +711,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_37
       rect:
         serializedVersion: 2
-        x: 296
-        y: 282
-        width: 154
-        height: 151
+        x: 293
+        y: 278
+        width: 165
+        height: 156
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -686,10 +732,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_38
       rect:
         serializedVersion: 2
-        x: 531
-        y: 285
-        width: 154
-        height: 151
+        x: 528
+        y: 281
+        width: 165
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -707,10 +753,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_39
       rect:
         serializedVersion: 2
-        x: 769
-        y: 281
-        width: 154
-        height: 151
+        x: 766
+        y: 277
+        width: 165
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -728,10 +774,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_40
       rect:
         serializedVersion: 2
-        x: 1007
-        y: 287
-        width: 154
-        height: 151
+        x: 1005
+        y: 283
+        width: 165
+        height: 155
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -749,10 +795,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_41
       rect:
         serializedVersion: 2
-        x: 1239
-        y: 288
-        width: 154
-        height: 151
+        x: 1237
+        y: 284
+        width: 165
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -770,10 +816,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_42
       rect:
         serializedVersion: 2
-        x: 1469
-        y: 287
-        width: 154
-        height: 151
+        x: 1466
+        y: 283
+        width: 165
+        height: 156
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -791,10 +837,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_43
       rect:
         serializedVersion: 2
-        x: 1701
-        y: 283
-        width: 154
-        height: 151
+        x: 1698
+        y: 279
+        width: 165
+        height: 156
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -812,10 +858,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_44
       rect:
         serializedVersion: 2
-        x: 62
-        y: 55
-        width: 154
-        height: 151
+        x: 59
+        y: 51
+        width: 165
+        height: 155
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -833,10 +879,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_45
       rect:
         serializedVersion: 2
-        x: 323
-        y: 43
-        width: 154
-        height: 151
+        x: 321
+        y: 39
+        width: 165
+        height: 155
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -854,10 +900,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_46
       rect:
         serializedVersion: 2
-        x: 597
-        y: 50
-        width: 154
-        height: 151
+        x: 595
+        y: 46
+        width: 165
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -875,10 +921,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_47
       rect:
         serializedVersion: 2
-        x: 883
-        y: 48
-        width: 154
-        height: 151
+        x: 881
+        y: 44
+        width: 165
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -896,10 +942,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_48
       rect:
         serializedVersion: 2
-        x: 1134
-        y: 46
-        width: 154
-        height: 151
+        x: 1131
+        y: 42
+        width: 165
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -917,10 +963,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_49
       rect:
         serializedVersion: 2
-        x: 1366
-        y: 40
-        width: 154
-        height: 151
+        x: 1363
+        y: 36
+        width: 165
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -938,10 +984,10 @@ TextureImporter:
       name: Steampunk_UI_inventory_cursor_icons_50
       rect:
         serializedVersion: 2
-        x: 1623
-        y: 35
-        width: 154
-        height: 151
+        x: 1620
+        y: 31
+        width: 165
+        height: 155
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -955,55 +1001,410 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    outline: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_0
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 1025
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca35c3c37d48df04a8590adfd19b7015
+      internalID: -1723266372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_1
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 1029
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 931caee08e29c754c8cc44a2d8e2a7d0
+      internalID: -2085707540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_2
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 1028
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d631e78669fe534d8f75b69546823ee
+      internalID: 68524746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_10
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1017
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b60271062b4da4ba72eb53b4942a51
+      internalID: -1824263276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_12
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 938
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e39ce2b1540a7549a0d7867d7609ac4
+      internalID: 1462097537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_13
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 930
+        width: 21
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec8f14f78faacc409a99a13a5d61d16
+      internalID: -1229458847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_14
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 934
+        width: 41
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa945882cac9c5942a9a4abd6606b858
+      internalID: -985650741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_15
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 937
+        width: 49
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b563422da3109e549896b05c559ef5e3
+      internalID: 559429789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_16
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 926
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72300774480720f4d9e103e742bc7f24
+      internalID: -996305358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_18
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 849
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e31865a9ba3ff6c4281a04c5bb088cdf
+      internalID: 990875412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_20
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 849
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb9ba785ebb30c418097f306386fb57
+      internalID: 1281113443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_22
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 852
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a716241af2353ac409ec75f27b55158e
+      internalID: -2056527774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_26
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 845
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 406f776ea8a4f9e4cb948a6d132520db
+      internalID: -810341533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_27
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 767
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04ecae219952d549be652969262ccb1
+      internalID: 1290742878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_28
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 771
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eaf3abc8a042e74abcb6bce76109726
+      internalID: 1247187170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steampunk_UI_inventory_cursor_icons_29
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 771
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35d96a0cd9dff764c99c659874860020
+      internalID: 1077336801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: 267, y: 344}
+      - {x: 267, y: 513}
+      - {x: 431, y: 514}
+      - {x: 432, y: 344}
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Steampunk_UI_inventory_cursor_icons_24: -3250116738703845074
+      Steampunk_UI_inventory_cursor_icons_0: -1723266372
+      Steampunk_UI_inventory_cursor_icons_1: -2085707540
+      Steampunk_UI_inventory_cursor_icons_10: -1824263276
       Steampunk_UI_inventory_cursor_icons_11: -2659740629439423499
-      Steampunk_UI_inventory_cursor_icons_32: 8027022815208280247
-      Steampunk_UI_inventory_cursor_icons_21: 5326031258848260206
-      Steampunk_UI_inventory_cursor_icons_6: -4676717269735476019
-      Steampunk_UI_inventory_cursor_icons_34: 3367770444138230542
-      Steampunk_UI_inventory_cursor_icons_8: -3512658301899701691
-      Steampunk_UI_inventory_cursor_icons_47: -6932456307053518182
-      Steampunk_UI_inventory_cursor_icons_3: 4859291981072315390
-      Steampunk_UI_inventory_cursor_icons_35: 1925567205052859930
-      Steampunk_UI_inventory_cursor_icons_4: -4396776607900809575
-      Steampunk_UI_inventory_cursor_icons_23: 2555940965172109900
-      Steampunk_UI_inventory_cursor_icons_38: 1481765990470897609
-      Steampunk_UI_inventory_cursor_icons_30: 4199241828208230157
-      Steampunk_UI_inventory_cursor_icons_42: 1771120098912506795
-      Steampunk_UI_inventory_cursor_icons_45: -6979345463012375436
-      Steampunk_UI_inventory_cursor_icons_33: 6555481737146133282
+      Steampunk_UI_inventory_cursor_icons_12: 1462097537
+      Steampunk_UI_inventory_cursor_icons_13: -1229458847
+      Steampunk_UI_inventory_cursor_icons_14: -985650741
+      Steampunk_UI_inventory_cursor_icons_15: 559429789
+      Steampunk_UI_inventory_cursor_icons_16: -996305358
       Steampunk_UI_inventory_cursor_icons_17: 799399395971795687
-      Steampunk_UI_inventory_cursor_icons_7: 7730392875212249362
-      Steampunk_UI_inventory_cursor_icons_25: -3507967788200807427
-      Steampunk_UI_inventory_cursor_icons_41: -427028709421643391
-      Steampunk_UI_inventory_cursor_icons_40: 1723224636535454388
-      Steampunk_UI_inventory_cursor_icons_5: 283434034112114428
-      Steampunk_UI_inventory_cursor_icons_36: 3150122119415527721
-      Steampunk_UI_inventory_cursor_icons_31: 2071443655879868920
-      Steampunk_UI_inventory_cursor_icons_46: -2681782042891149300
-      Steampunk_UI_inventory_cursor_icons_39: 5129307334249272741
-      Steampunk_UI_inventory_cursor_icons_44: 152811537136535293
-      Steampunk_UI_inventory_cursor_icons_48: 3589525664035264429
-      Steampunk_UI_inventory_cursor_icons_9: -7088471328016812336
+      Steampunk_UI_inventory_cursor_icons_18: 990875412
       Steampunk_UI_inventory_cursor_icons_19: -7123685762806065932
+      Steampunk_UI_inventory_cursor_icons_2: 68524746
+      Steampunk_UI_inventory_cursor_icons_20: 1281113443
+      Steampunk_UI_inventory_cursor_icons_21: 5326031258848260206
+      Steampunk_UI_inventory_cursor_icons_22: -2056527774
+      Steampunk_UI_inventory_cursor_icons_23: 2555940965172109900
+      Steampunk_UI_inventory_cursor_icons_24: -3250116738703845074
+      Steampunk_UI_inventory_cursor_icons_25: -3507967788200807427
+      Steampunk_UI_inventory_cursor_icons_26: -810341533
+      Steampunk_UI_inventory_cursor_icons_27: 1290742878
+      Steampunk_UI_inventory_cursor_icons_28: 1247187170
+      Steampunk_UI_inventory_cursor_icons_29: 1077336801
+      Steampunk_UI_inventory_cursor_icons_3: 4859291981072315390
+      Steampunk_UI_inventory_cursor_icons_30: 4199241828208230157
+      Steampunk_UI_inventory_cursor_icons_31: 2071443655879868920
+      Steampunk_UI_inventory_cursor_icons_32: 8027022815208280247
+      Steampunk_UI_inventory_cursor_icons_33: 6555481737146133282
+      Steampunk_UI_inventory_cursor_icons_34: 3367770444138230542
+      Steampunk_UI_inventory_cursor_icons_35: 1925567205052859930
+      Steampunk_UI_inventory_cursor_icons_36: 3150122119415527721
       Steampunk_UI_inventory_cursor_icons_37: 5740775765791094921
-      Steampunk_UI_inventory_cursor_icons_49: -8222878684418604810
-      Steampunk_UI_inventory_cursor_icons_50: -1202721662152821624
+      Steampunk_UI_inventory_cursor_icons_38: 1481765990470897609
+      Steampunk_UI_inventory_cursor_icons_39: 5129307334249272741
+      Steampunk_UI_inventory_cursor_icons_4: -4396776607900809575
+      Steampunk_UI_inventory_cursor_icons_40: 1723224636535454388
+      Steampunk_UI_inventory_cursor_icons_41: -427028709421643391
+      Steampunk_UI_inventory_cursor_icons_42: 1771120098912506795
       Steampunk_UI_inventory_cursor_icons_43: -5999422824933822019
-  spritePackingTag: 
+      Steampunk_UI_inventory_cursor_icons_44: 152811537136535293
+      Steampunk_UI_inventory_cursor_icons_45: -6979345463012375436
+      Steampunk_UI_inventory_cursor_icons_46: -2681782042891149300
+      Steampunk_UI_inventory_cursor_icons_47: -6932456307053518182
+      Steampunk_UI_inventory_cursor_icons_48: 3589525664035264429
+      Steampunk_UI_inventory_cursor_icons_49: -8222878684418604810
+      Steampunk_UI_inventory_cursor_icons_5: 283434034112114428
+      Steampunk_UI_inventory_cursor_icons_50: -1202721662152821624
+      Steampunk_UI_inventory_cursor_icons_6: -4676717269735476019
+      Steampunk_UI_inventory_cursor_icons_7: 7730392875212249362
+      Steampunk_UI_inventory_cursor_icons_8: -3512658301899701691
+      Steampunk_UI_inventory_cursor_icons_9: -7088471328016812336
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

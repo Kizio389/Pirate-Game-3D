@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2356846}
   - component: {fileID: 64984674129028062}
   - component: {fileID: 2224801737360487494}
+  - component: {fileID: 8905675382730891016}
+  - component: {fileID: 1126443940584348001}
   m_Layer: 0
   m_Name: Tree Scale 0.3
   m_TagString: Untagged
@@ -135,6 +137,41 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2356846}
   m_Enabled: 1
+--- !u!114 &8905675382730891016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147782}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca81e331abad834bb6ce00f3d5696e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInRange: 0
+  ItemName: tree
+--- !u!65 &1126443940584348001
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147782}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 6, y: 6, z: 6}
+  m_Center: {x: -0.24575746, y: 3.645614, z: 0.10000229}
 --- !u!1 &6355439949926656330
 GameObject:
   m_ObjectHideFlags: 0

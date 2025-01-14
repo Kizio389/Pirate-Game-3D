@@ -1,83 +1,84 @@
-﻿using UnityEngine;
-using Photon.Pun;
+﻿/*using unityengine;
+using photon.pun;
 
-public class EnemyAttack : MonoBehaviourPun
+public class enemyattack : monobehaviourpun
 {
-    public float detectionRadius = 5f;
-    public LayerMask detectionLayer;
-    public float stopDistance = 1f;
-    public float moveSpeed = 3f;
+    public float detectionradius = 5f;
+    public layermask detectionlayer;
+    public float stopdistance = 1f;
+    public float movespeed = 3f;
 
-    [SerializeField] private Transform target;
-    public float Damage = 10f;
+    [serializefield] private transform target;
+    public float damage = 10f;
 
-    Animator animator;
+    animator animator;
 
-    void Start()
+    void start()
     {
-        animator = GetComponent<Animator>();
+        animator = getcomponent<animator>();
     }
 
-    void Update()
+    void update()
     {
-        DetectAndMove();
+        detectandmove();
     }
 
-    void DetectAndMove()
+    void detectandmove()
     {
         if (target != null)
         {
-            float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            float distancetotarget = vector3.distance(transform.position, target.position);
 
-            if (distanceToTarget > stopDistance)
+            if (distancetotarget > stopdistance)
             {
-                MoveTowardsTarget();
+                movetowardstarget();
             }
             else
             {
-                Attack();
+                attack();
             }
         }
         else
         {
-            SearchForTarget();
+            searchfortarget();
         }
     }
 
-    void SearchForTarget()
+    void searchfortarget()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius, detectionLayer);
-        if (hitColliders.Length > 0)
+        collider[] hitcolliders = physics.overlapsphere(transform.position, detectionradius, detectionlayer);
+        if (hitcolliders.length > 0)
         {
-            target = hitColliders[0].transform;
+            target = hitcolliders[0].transform;
         }
     }
 
-    void MoveTowardsTarget()
+    void movetowardstarget()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
-        transform.position += direction * moveSpeed * Time.deltaTime;
-        animator.SetBool("Run", true);
+        vector3 direction = (target.position - transform.position).normalized;
+        transform.position += direction * movespeed * time.deltatime;
+        animator.setbool("run", true);
     }
 
-    void Attack()
+    void attack()
     {
-        animator.SetBool("Run", false);
-        animator.SetTrigger("Attack");
+        animator.setbool("run", false);
+        animator.settrigger("attack");
 
-        if (target != null && target.GetComponent<PlayerController>())
+        if (target != null && target.getcomponent<playercontroller>())
         {
-            photonView.RPC("ApplyDamageToPlayer", RpcTarget.All, target.GetComponent<PhotonView>().ViewID);
+            photonview.rpc("applydamagetoplayer", rpctarget.all, target.getcomponent<photonview>().viewid);
         }
     }
 
-    [PunRPC]
-    void ApplyDamageToPlayer(int playerViewID)
+    [punrpc]
+    void applydamagetoplayer(int playerviewid)
     {
-        PhotonView targetPhotonView = PhotonView.Find(playerViewID);
-        if (targetPhotonView != null)
+        photonview targetphotonview = photonview.find(playerviewid);
+        if (targetphotonview != null)
         {
-            targetPhotonView.GetComponent<PlayerController>().TakeDamageFromEnemy(Damage);
+            targetphotonview.getcomponent<playercontroller>().takedamagefromenemy(damage);
         }
     }
 }
+*/

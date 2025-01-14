@@ -16,9 +16,7 @@ public class PlayerController : MonoBehaviourPun
 
     void Start()
     {
-        // Lấy giá trị từ PlayerPrefs trong hàm Start
-        health = PlayerPrefsManager.GetHealth();
-        maxHealth = PlayerPrefsManager.GetMaxHealth();
+       
         
 
         animator_Player = GetComponent<Animator>();
@@ -30,17 +28,27 @@ public class PlayerController : MonoBehaviourPun
 
        
         HandleAttack();
-        HandleParry();
+      
     }
    
 
     void HandleAttack()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(3)) // Chuột trái để tấn công
         {
             if (!isAttacking)
             {
                 StartCoroutine(PerformAttack("Attack1"));
+
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, 2.0f)) // Phạm vi tấn công 2m
+                {
+                    var enemy = hit.transform.GetComponent<EnemyController>();
+                    if (enemy != null)
+                    {
+                        enemy.TakeDamage(10); // Gây 10 sát thương
+                    }
+                }
             }
         }
     }
@@ -50,59 +58,15 @@ public class PlayerController : MonoBehaviourPun
         isAttacking = true;
         animator_Player.SetTrigger(attackTrigger);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f); // Thời gian giữa các đòn tấn công
         isAttacking = false;
     }
 
-    void HandleParry()
-    {
-        if (Input.GetMouseButton(1))
-        {
-            if (!isParrying)
-            {
-                isParrying = true;
-                photonView.RPC("TriggerParry", RpcTarget.All, true);
-            }
-        }
-        else if (isParrying)
-        {
-            isParrying = false;
-            photonView.RPC("TriggerParry", RpcTarget.All, false);
-        }
-    }
 
-    void TriggerParry(bool state)
-    {
-        animator_Player.SetBool("Parry", state);
-    }
 
-    public void TakeDamage(float damage)
-    {
-        if (isParrying)
-        {
-            Debug.Log("Damage blocked by Parry!");
-            return;
-        }
 
-        health -= damage;
-        PlayerPrefsManager.SetHealth(Mathf.Max(health, 0));
 
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
+  
 
-    public void TakeDamageFromEnemy(float damage)
-    {
-        if (!photonView.IsMine) return;
-
-        photonView.RPC("TakeDamage", RpcTarget.AllBuffered, damage);
-    }
-
-    void Die()
-    {
-        animator_Player.SetTrigger("Die");
-        enabled = false;
-    }
+   
 }

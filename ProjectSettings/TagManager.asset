@@ -7,6 +7,10 @@ TagManager:
   - Weapon
   - Enemy
   - Recorder
+  - Slot
+  - Pickable
+  - QuickSlot
+  - Waypoints
   layers:
   - Default
   - TransparentFX

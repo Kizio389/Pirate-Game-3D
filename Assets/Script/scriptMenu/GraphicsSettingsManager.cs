@@ -12,7 +12,12 @@ public class GraphicsSettingsManager : MonoBehaviour
     public Slider globalVolumeSlider;
     public Slider musicVolumeSlider;
 
-    private Resolution[] resolutions;
+    private Resolution[] resolutions = new Resolution[]
+    {
+        new Resolution { width = 640, height = 480 },
+        new Resolution { width = 1024, height = 768 },
+        new Resolution { width = 1920, height = 1080 }
+    };
 
     void Start()
     {
@@ -23,7 +28,6 @@ public class GraphicsSettingsManager : MonoBehaviour
         Screen.SetResolution(currentResolution.width, currentResolution.height, FullScreenMode.FullScreenWindow);
 
         // Khởi tạo danh sách độ phân giải
-        resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 
         List<TMP_Dropdown.OptionData> options = new List<TMP_Dropdown.OptionData>();
@@ -48,8 +52,6 @@ public class GraphicsSettingsManager : MonoBehaviour
         // Tải cấu hình đã lưu
         LoadSettings();
     }
-
-
 
     public void ApplySettings()
     {
